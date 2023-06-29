@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas {
+    display:flex;
+    flex-direction: row;
+    width: 700px;
+    height: 700px;
+    border: solid black;
+}
+
+.columns {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    flex-grow: 1;
+}
+
+.rows {
+    border: 1px solid black;
+    flex-grow: 1;  
+}
