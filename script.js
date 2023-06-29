@@ -1,5 +1,7 @@
 var canvas = document.querySelector("div.canvas");
 var cellsNumber = 16
+let buttonErase = document.querySelector("#eraseButton")
+
 
 function createCanvas(cellsNumber) {
 
@@ -12,9 +14,12 @@ function createCanvas(cellsNumber) {
             const rows = document.createElement("div");
             rows.classList.add("rows");
             columns.appendChild(rows);
+            rows.addEventListener('mouseover', () => rows.style.backgroundColor ="black")
             }
     }
 }
 
-createCanvas(cellsNumber)
+createCanvas(cellsNumber);
+let rows = document.getElementsByClassName("rows");
+buttonErase.addEventListener('click', () => rows.style.backgroundColor = "white");
 

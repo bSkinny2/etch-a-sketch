@@ -6,6 +6,7 @@
 
 .content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -27,5 +28,6 @@
 
 .rows {
     border: 1px solid black;
-    flex-grow: 1;  
+    flex-grow: 1;
+    background-color: white;  
 }
