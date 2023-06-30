@@ -18,8 +18,14 @@ function createCanvas(cellsNumber) {
             }
     }
 }
-
 createCanvas(cellsNumber);
-let rows = document.getElementsByClassName("rows");
-buttonErase.addEventListener('click', () => rows.style.backgroundColor = "white");
+
+buttonErase.addEventListener('click', () => {
+    let rows = document.getElementsByClassName("rows");
+        for (i=0; i< rows.length; i++) {
+            rows[i].style.backgroundColor = "white"
+        }
+    }
+)
+       
 

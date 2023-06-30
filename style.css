@@ -22,12 +22,17 @@
 .columns {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     flex-grow: 1;
 }
 
 .rows {
-    border: 1px solid black;
+   /* border: 1px solid black;*/
     flex-grow: 1;
     background-color: white;  
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
 }
