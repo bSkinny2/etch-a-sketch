@@ -3,12 +3,19 @@ let buttonErase = document.querySelector("#eraseButton")
 let buttonApplyRes = document.querySelector('#applyRes');
 var slider = document.getElementById("resolution");
 var sliderValue = document.getElementById("resolutionValue");
+var blackButton = document.querySelector("#black");
+var rainbowButton = document.querySelector('#rainbow');
 var cellsNumber = slider.value;
+var mode = 0;
+
 sliderValue.innerHTML = slider.value + "x" + slider.value;
 slider.oninput = function() {
     sliderValue.innerHTML = this.value + "x" + this.value;
     cellsNumber = this.value
 }
+
+rainbowButton.addEventListener('click', () => mode = 1);
+blackButton.addEventListener('click', () => mode = 0);
 
 function createCanvas() {
 
@@ -42,7 +49,14 @@ document.body.onmouseup = () => (mouseDown = false);
 
 function draw(e) {
     if (e.type === 'mouseover' && mouseDown) {
-        e.target.style.backgroundColor = "black"
+        if (mode == 1) {
+            let R = Math.floor(Math.random() * 255);
+            let G = Math.floor(Math.random() * 255);
+            let B = Math.floor(Math.random() * 255);
+            const color = 'rgb('+ R + ',' + G + ',' + B + ')'
+            e.target.style.backgroundColor = color;
+        }
+        else e.target.style.backgroundColor = "black"
     }
 }
 

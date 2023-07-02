@@ -11,13 +11,24 @@
             <h1>Etch a Sketch</h1>
         </div>
         <div class="content">
-          <button id="eraseButton">Clear canvas</button>
-          <div class="resContainer">
-            <div>Resolution:</div>
-            <input type="range" min="16" max="100" value="16" class="slider" id="resolution">
-            <div id="resolutionValue"></div>
-            <button id="applyRes">Apply</button>
-          </div> 
+            <div class="controls">
+                <button id="eraseButton">Clear canvas</button>
+                <div class="resContainer">
+                    <div>Resolution:</div>
+                    <input type="range" min="16" max="100" value="16" class="slider" id="resolution">
+                    <div id="resolutionValue"></div>
+                </div>
+                <button id="applyRes">Apply resolution</button>
+                <div class="resContainer">
+                    <div>Mode:</div>
+                    <div class="controls">
+                        <button id="black">Black</button>
+                        <button id="rainbow">Rainbow</button>
+                    </div>
+                   
+                </div>
+                
+            </div>
         <div class="canvas"></div>
         </div>
         <script src="script.js"></script>
