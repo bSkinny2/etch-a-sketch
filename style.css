@@ -27,12 +27,19 @@
 }
 
 .rows {
-   /* border: 1px solid black;*/
+    /*border: 1px solid black;*/
     flex-grow: 1;
     background-color: white;  
 }
 
 button {
     margin: 10px;
+    padding: 5px;
+}
+#eraseButton {
     padding: 10px;
+}
+.resContainer {
+    display: flex;
+    align-items: center;
 }

@@ -1,13 +1,16 @@
-var canvas = document.querySelector("div.canvas");
-var cellsNumber = 16
+let canvas = document.querySelector("div.canvas");
 let buttonErase = document.querySelector("#eraseButton")
+let buttonApplyRes = document.querySelector('#applyRes');
+var slider = document.getElementById("resolution");
+var sliderValue = document.getElementById("resolutionValue");
+var cellsNumber = slider.value;
+sliderValue.innerHTML = slider.value + "x" + slider.value;
+slider.oninput = function() {
+    sliderValue.innerHTML = this.value + "x" + this.value;
+    cellsNumber = this.value
+}
 
-let mouseDown = false;
-
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
-
-function createCanvas(cellsNumber) {
+function createCanvas() {
 
     for (i=1; i < cellsNumber; i++) {
         const columns = document.createElement("div");
@@ -21,27 +24,27 @@ function createCanvas(cellsNumber) {
             rows.addEventListener('mousedown', draw);
             rows.addEventListener('mouseover', draw);
 
-            /*var promHover = new Promise(function(resolve,reject){
-                rows.addEventListener('mouseover',resolve);
-            });
-            var promClick = new Promise(function(resolve,reject){
-                rows.addEventListener('mousedown',resolve);
-            });
-            Promise.all([promClick,promHover]).then(function() {
-                rows.style.backgroundColor ="black"
-            })
-            */
             }
-            }    
-        }
-    
+        }    
+    }
+
+function recreateCanvas () {
+    canvas.innerHTML = "";
+    createCanvas();
+}    
+createCanvas();
+buttonApplyRes.addEventListener('click', () => recreateCanvas());
+
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+
 function draw(e) {
     if (e.type === 'mouseover' && mouseDown) {
         e.target.style.backgroundColor = "black"
     }
 }
-createCanvas(cellsNumber);
-
 
 buttonErase.addEventListener('click', () => {
     let rows = document.getElementsByClassName("rows");
